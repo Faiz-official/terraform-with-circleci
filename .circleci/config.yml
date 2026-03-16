@@ -6,15 +6,9 @@ jobs:
       - image: hashicorp/terraform:1.6.6
     steps:
       - checkout
-
       - run:
           name: Terraform Init
           command: terraform init
-
-      - run:
-          name: Terraform Plan Destroy
-          command: terraform plan -destroy -var-file="terraform.tfvars"
-
       - run:
           name: Terraform Destroy
           command: terraform destroy -auto-approve -var-file="terraform.tfvars"
